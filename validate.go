@@ -55,8 +55,6 @@ func IsValid(key string, d Data) error {
 }
 
 func (v *ValidationError) Error() string {
-	// Iterate over errors. Prints the key, and if there is only one message, adds message to the same line.
-	// Otherwise, indents message errors by \t
 	str := v.key + ":\n"
 	for _, m := range v.errors {
 		// Not quite right. Need to pass indentation level into a nested function, avoid "\n" where not needed.

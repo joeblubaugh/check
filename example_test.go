@@ -82,9 +82,9 @@ func ExampleIsValid_complex() {
 	d := &Complex{
 		value: 1,
 		child: &Complex{
-			value: 10,
+			value: 4,
 			child: &Complex{
-				value: 5,
+				value: 6,
 			},
 		},
 	}
