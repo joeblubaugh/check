@@ -1,4 +1,4 @@
-package validate
+package check
 
 import (
 	"reflect"
@@ -27,7 +27,7 @@ func (v *ValidationError) Add(m ...error) *ValidationError {
 	return v
 }
 
-func Validate(key string, d Data) error {
+func IsValid(key string, d Data) error {
 	ve := &ValidationError{}
 	err := d.IsValid()
 	if err == nil {

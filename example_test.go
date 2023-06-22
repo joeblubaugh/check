@@ -1,4 +1,4 @@
-package validate
+package check
 
 import (
 	"errors"
@@ -20,12 +20,12 @@ func (s *simple) IsValid() error {
 }
 
 // Examples of use of the validate package
-func ExampleValidate_simple() {
+func ExampleIsValid_simple() {
 	d := &simple{
 		value: 10,
 	}
 
-	fmt.Println(Validate("simple type", d))
+	fmt.Println(IsValid("simple type", d))
 	// Output:
 	//simple type:
 	//	Value must be 5 or less
@@ -50,7 +50,7 @@ func (c *Complex) IsValid() error {
 	}
 
 	if c.child != nil {
-		err := Validate("child", c.child)
+		err := IsValid("child", c.child)
 		if err != nil {
 			add(err)
 		}
@@ -78,7 +78,7 @@ func TestErrorWeirdness(t *testing.T) {
 
 }
 
-func ExampleValidate_complex() {
+func ExampleIsValid_complex() {
 	d := &Complex{
 		value: 1,
 		child: &Complex{
@@ -89,11 +89,10 @@ func ExampleValidate_complex() {
 		},
 	}
 
-	fmt.Println(Validate("complex type", d))
+	fmt.Println(IsValid("complex type", d))
 	// Output:
 	//complex type:
 	//	child:
-	//		Value must be 5 or less
 	//		child:
 	//			Value must be 5 or less
 }

@@ -1,4 +1,4 @@
-module github.com/joeblubaugh/validate
+module github.com/joeblubaugh/check
 
 go 1.20
 
